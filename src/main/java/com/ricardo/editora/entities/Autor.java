@@ -1,5 +1,6 @@
 package com.ricardo.editora.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -14,26 +15,27 @@ public class Autor implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String nome;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "autor")
     private List<Livro> livros = new ArrayList<>();
 
     public Autor() {
     }
 
-    public Autor(Integer id, String nome) {
+    public Autor(Long id, String nome) {
         super();
         this.id = id;
         this.nome = nome;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

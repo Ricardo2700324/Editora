@@ -1,5 +1,6 @@
 package com.ricardo.editora.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -12,9 +13,10 @@ public class Livro implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String titulo;
     private String texto;
+
 
     @ManyToOne
     @JoinColumn(name = "autor_id")
@@ -23,7 +25,7 @@ public class Livro implements Serializable {
     public Livro() {
     }
 
-    public Livro(Integer id, String titulo, String texto, Autor autor) {
+    public Livro(Long id, String titulo, String texto, Autor autor) {
         super();
         this.id = id;
         this.titulo = titulo;
@@ -31,11 +33,11 @@ public class Livro implements Serializable {
         this.autor = autor;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
