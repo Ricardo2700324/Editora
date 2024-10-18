@@ -1,13 +1,11 @@
 package com.ricardo.editora.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.ricardo.editora.dto.AutorDTO;
 import com.ricardo.editora.entities.Autor;
 import com.ricardo.editora.repositories.AutorRepository;
 import com.ricardo.editora.resources.exceptions.ObjectNotFoundException;
-import com.ricardo.editora.resources.exceptions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
