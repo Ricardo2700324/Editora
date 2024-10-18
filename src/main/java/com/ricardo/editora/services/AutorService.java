@@ -20,8 +20,8 @@ public class AutorService {
     private AutorRepository autorRepository;
 
     public Autor findById(Long id) {
-        Optional<Autor> obj = autorRepository.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! " + id + ", Tipo: " + Autor.class.getName()));
+        return autorRepository.findById(id)
+                .orElseThrow(() -> new ObjectNotFoundException("Autor não encontrado! Id:" + id));
     }
 
     public List<Autor> findAll() {

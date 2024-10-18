@@ -2,6 +2,8 @@ package com.ricardo.editora.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,6 +18,9 @@ public class Autor implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotEmpty(message = "Campo NOME requerido!")
+    @Length(min = 3, max = 100, message = "O campo NOME deve ter entre 3 e 100 caracteres!")
     private String nome;
 
     @JsonIgnore
