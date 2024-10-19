@@ -93,7 +93,7 @@ class AutorServiceTest {
         Autor updatedAutor = autorService.update(1L, autorDTO);
 
         assertNotNull(updatedAutor);
-        assertEquals("Robert Martin", updatedAutor.getNome());  // O nome não mudou nesse caso
+        assertEquals("Robert Martin", updatedAutor.getNome());
     }
 
     @Test

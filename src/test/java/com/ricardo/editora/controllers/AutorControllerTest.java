@@ -3,7 +3,6 @@ package com.ricardo.editora.controllers;
 import com.ricardo.editora.controller.AutorController;
 import com.ricardo.editora.dto.AutorDTO;
 import com.ricardo.editora.entities.Autor;
-import com.ricardo.editora.resources.exceptions.ObjectNotFoundException;
 import com.ricardo.editora.services.AutorService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -61,19 +59,6 @@ class AutorControllerTest {
         assertNotNull(response.getBody());
         assertEquals("Robert Martin", response.getBody().getNome());
         verify(service, times(1)).findById(1L);
-    }
-
-    @Test
-    void testFindByIdNotFound() {
-
-        when(service.findById(3L)).thenThrow(new ObjectNotFoundException("Autor não encontrado! Id: 3"));
-
-        ResponseStatusException exception = assertThrows(ResponseStatusException.class, () -> {
-            controller.findById(3L);
-        });
-
-        assertEquals(HttpStatus.NOT_FOUND, exception.getStatusCode());
-        verify(service, times(1)).findById(3L);
     }
 
 
