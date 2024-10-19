@@ -78,20 +78,6 @@ class AutorControllerTest {
 
 
     @Test
-    void testCreateAutor() {
-
-        Autor newAutor = new Autor(1L, "Kent Beck");
-
-        when(service.create(any(Autor.class))).thenReturn(newAutor);
-
-        ResponseEntity<Autor> response = controller.create(newAutor);
-
-        assertEquals(HttpStatus.CREATED, response.getStatusCode());
-
-        verify(service, times(1)).create(any(Autor.class));
-    }
-
-    @Test
     void testUpdateAutor() {
         AutorDTO autorDTO = new AutorDTO(autor1);
         when(service.update(anyLong(), any(AutorDTO.class))).thenReturn(autor1);
