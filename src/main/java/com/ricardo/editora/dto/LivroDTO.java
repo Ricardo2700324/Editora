@@ -1,10 +1,11 @@
 package com.ricardo.editora.dto;
 
 import com.ricardo.editora.entities.Livro;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 

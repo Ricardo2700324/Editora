@@ -26,20 +26,17 @@ public class EditoraApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		// Criando autores
+
 		Autor autor1 = new Autor(null, "Robert Martin");
 		Autor autor2 = new Autor(null, "Martin Fowler");
 
-		// Criando livros e associando-os a autores
 		Livro l1 = new Livro(null, "Clean Code", "Loren ipsun", autor1);
 		Livro l2 = new Livro(null, "Refactoring", "Loren ipsun", autor2);
 
-		// Associando livros aos autores
 		autor1.getLivros().addAll(Arrays.asList(l1));
 		autor2.getLivros().addAll(Arrays.asList(l2));
 
-		// Salvando autores e livros
-		this.autorRepsitory.saveAllAndFlush(Arrays.asList(autor1, autor2));
+		this.autorRepsitory.saveAll(Arrays.asList(autor1, autor2));
 		this.livroRepsitory.saveAll(Arrays.asList(l1, l2));
 	}
 

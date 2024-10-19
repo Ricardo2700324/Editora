@@ -1,12 +1,14 @@
 package com.ricardo.editora.resources.exceptions;
 
 
-import jakarta.servlet.ServletRequest;
+
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import javax.servlet.ServletRequest;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
